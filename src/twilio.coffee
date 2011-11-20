@@ -1,8 +1,10 @@
-Robot = require("hubot").robot()
-HTTP  = require 'http'
-QS    = require 'querystring'
+Robot   = require("hubot").robot()
+Adapter = require("hubot").adapter()
 
-class Twilio extends Robot.Adapter
+HTTP    = require "http"
+QS      = require "querystring"
+
+class Twilio extends Adapter
   constructor: (robot) ->
     @sid   = process.env.HUBOT_SMS_SID
     @token = process.env.HUBOT_SMS_TOKEN
@@ -12,12 +14,11 @@ class Twilio extends Robot.Adapter
   send: (user, strings...) ->
     message = strings.join "\n"
 
-    for msg in @split_long_sms(message)
-      @send_sms message, user.id, (err, body) ->
-        if err or not body?
-          console.log "Error sending reply SMS: #{err}"
-        else
-          console.log "Sending reply SMS: #{message} to #{user.id}"
+    @send_sms message, user.id, (err, body) ->
+      if err or not body?
+        console.log "Error sending reply SMS: #{err}"
+      else
+        console.log "Sending reply SMS: #{message} to #{user.id}"
 
   reply: (user, strings...) ->
     @send user, str for str in strings
@@ -60,18 +61,6 @@ class Twilio extends Robot.Adapter
         else
           json = JSON.parse(body)
           callback body.message
-
-  split_long_sms: (message) ->
-    strs = []
-    while str.length > 150
-      pos = str.substring(0, 150).lastIndexOf(" ")
-      pos = (if pos <= 0 then 150 else pos)
-      strs.push str.substring(0, pos)
-      i = str.indexOf(" ", pos) + 1
-      i = pos  if i < pos or i > pos + 150
-      str = str.substring(i)
-    strs.push str
-    strs
 
 exports.use = (robot) ->
   new Twilio robot
