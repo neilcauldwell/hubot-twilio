@@ -1,5 +1,5 @@
 {
-  "name":        "hubot-twilio",
+  "name":        "hubot-twilio-adapter",
   "version":     "2.0.0",
   "author":      "Tom Bell",
   "keywords":    "github hubot twilio adapter",
