@@ -12,9 +12,6 @@
     "type" : "git",
     "url" : "http://github.com/tombell/hubot-twilio.git"
   },
-  "dependencies": {
-    "hubot": ">= 2.0.4"
-  },
   "devDependencies": {
     "coffee-script": "1.1.3"
   },
