@@ -1,6 +1,6 @@
 {
   "name":        "hubot-twilio",
-  "version":     "2.0.0",
+  "version":     "2.0.1",
   "author":      "Tom Bell",
   "keywords":    "github hubot twilio adapter",
   "description": "A Twilio adapter for hubot",
