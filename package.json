@@ -1,16 +1,16 @@
 {
-  "name":        "hubot-twilio",
+  "name":        "hubot-twilio-nc",
   "version":     "2.0.1",
-  "author":      "Tom Bell",
-  "keywords":    "github hubot twilio adapter",
-  "description": "A Twilio adapter for hubot",
+  "author":      "Neil Cauldwell",
+  "keywords":    "github hubot twilio forked adapter",
+  "description": "A fork of the original Twilio adapter for hubot",
   "licenses":     [{
     "type":       "MIT",
-    "url":        "http://github.com/tombell/hubot-twilio/raw/master/LICENSE"
+    "url":        "http://github.com/neilcauldwell/hubot-twilio/raw/master/LICENSE"
   }],
   "repository" : {
     "type" : "git",
-    "url" : "http://github.com/tombell/hubot-twilio.git"
+    "url" : "http://github.com/neilcauldwell/hubot-twilio.git"
   },
   "devDependencies": {
     "coffee-script": "1.1.3"
