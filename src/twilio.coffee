@@ -42,6 +42,13 @@ class Twilio extends Adapter
   receive_sms: (body, from) ->
     return if body.length is 0
     user = @userForId from
+
+		# NOTE It might be preferable to send the user a message telling them
+		# they need to call the bot by name rather than
+		# continually prefixing it for them.
+    if (body.indexOf @name) isnt 0
+      body = @name + body
+
     @receive new Robot.TextMessage user, body
 
   send_sms: (message, to, callback) ->
