@@ -45,7 +45,7 @@ class Twilio extends Adapter
 
 		# NOTE It might be preferable to send the user a message telling them
 		# they need to call the bot by name rather than prefixing it for them.
-    if message.content.match(/^Nurph\b/i) is null
+    if body.match(/^Nurph\b/i) is null
       console.log "I'm adding 'Nurph' as a prefix."
       body = 'Nurph' + '' + body
 
