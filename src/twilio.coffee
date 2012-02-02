@@ -43,7 +43,9 @@ class Twilio extends Adapter
     return if body.length is 0
     user = @userForId from
 
-    console.log "#{body.match(/^Nurph\b/i)}"
+    console.log "body: #{body}"
+    console.log "body.match(/^Nurph\b/i): #{body.match(/^Nurph\b/i)}"
+
     if body.match(/^Nurph\b/i) is null
       console.log "I'm adding 'Nurph' as a prefix."
       body = 'Nurph' + '' + body
