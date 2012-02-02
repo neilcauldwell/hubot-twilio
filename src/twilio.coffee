@@ -44,10 +44,10 @@ class Twilio extends Adapter
     user = @userForId from
 
 		# NOTE It might be preferable to send the user a message telling them
-		# they need to call the bot by name rather than
-		# continually prefixing it for them.
-    if (body.indexOf @name) isnt 0
-      body = @name + body
+		# they need to call the bot by name rather than prefixing it for them.
+    if message.content.match(/^Nurph\b/i) is null
+      console.log "I'm adding 'Nurph' as a prefix."
+      body = 'Nurph' + '' + body
 
     @receive new Robot.TextMessage user, body
 
