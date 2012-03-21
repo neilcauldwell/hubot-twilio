@@ -27,7 +27,6 @@ class Twilio extends Adapter
     @hear regex, callback
 
   run: ->
-    #server = HTTP.createServer (request, response) =>
     robot.router.get "/hubot/sms", (request, response) ->
       payload = QS.parse(request.url)
 
@@ -37,8 +36,6 @@ class Twilio extends Adapter
 
       response.writeHead 200, 'Content-Type': 'text/plain'
       response.end()
-
-    #server.listen (parseInt(process.env.PORT) or 8080), "0.0.0.0"
 
   receive_sms: (body, from) ->
     return if body.length is 0
