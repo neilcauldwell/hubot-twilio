@@ -1,6 +1,6 @@
 {
   "name":        "hubot-twilio-nc",
-  "version":     "2.0.9",
+  "version":     "2.1.0",
   "author":      "Neil Cauldwell",
   "keywords":    "github hubot twilio forked adapter",
   "description": "A fork of the original Twilio adapter for hubot",

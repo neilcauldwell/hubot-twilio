@@ -28,7 +28,7 @@ class Twilio extends Adapter
     @hear regex, callback
 
   run: ->
-    @robot.router.get "/hubot/sms", (request, response) ->
+    @robot.router.get "/hubot/sms", (request, response) =>
       payload = QS.parse(request.url)
 
       if payload.Body? and payload.From?
