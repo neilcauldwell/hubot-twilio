@@ -9,6 +9,7 @@ class Twilio extends Adapter
     @sid   = process.env.HUBOT_SMS_SID
     @token = process.env.HUBOT_SMS_TOKEN
     @from  = process.env.HUBOT_SMS_FROM
+    @robot = robot
     super robot
 
   send: (user, strings...) ->
@@ -27,7 +28,7 @@ class Twilio extends Adapter
     @hear regex, callback
 
   run: ->
-    robot.router.get "/hubot/sms", (request, response) ->
+    @robot.router.get "/hubot/sms", (request, response) ->
       payload = QS.parse(request.url)
 
       if payload.Body? and payload.From?
